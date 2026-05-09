@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Success Spiral — Turn Small Wins Into Big Victories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --ink: #0d0d0d;
+            --ink-soft: #2a2a2a;
+            --ink-muted: #6b6b6b;
+            --ink-faint: #999;
+            --paper: #faf8f3;
+            --paper-warm: #f5f1e8;
+            --paper-cool: #f8f8f8;
+            --accent: #c8381a;
+            --accent-dark: #9e2a12;
+            --accent-soft: #f0ebe4;
+            --gold: #c9962a;
+            --gold-light: #f5d98a;
+            --green: #1a6b3a;
+            --border: #e2ddd5;
+            --border-dark: #c8c0b5;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: var(--ink-soft);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ── ANNOUNCEMENT BAR ── */
+        .topbar {
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            padding: 11px 20px;
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            font-weight: 500;
+        }
+
+        .topbar strong {
+            color: var(--gold-light);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--ink);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 32px 24px;
+        }
+
+        .hero-noise {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .hero-line-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent);
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 32px;
+        }
+
+        .hero-eyebrow::before,
+        .hero-eyebrow::after {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(38px, 6vw, 72px);
+            font-weight: 900;
+            line-height: 1.08;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .hero-sub {
+            font-size: clamp(17px, 2.2vw, 21px);
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 640px;
+            margin: 0 auto 48px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            padding: 18px 44px;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background 0.15s, transform 0.12s;
+            text-align: center;
+        }
+
+        .btn-hero:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-hero small {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            opacity: 0.75;
+            margin-top: 3px;
+            letter-spacing: 0.04em;
+        }
+
+        .hero-trust {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 0.08em;
+        }
+
+        /* ── VIDEO ── */
+        .video-section {
+            background: var(--ink);
+            padding: 0 32px 80px;
+        }
+
+        .video-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            aspect-ratio: 16/9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-play-btn {
+            width: 72px;
+            height: 72px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .video-wrap:hover .video-play-btn {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .video-play-btn svg {
+            fill: white;
+            width: 28px;
+            height: 28px;
+            margin-left: 5px;
+        }
+
+        .video-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 96px 32px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .container-wide {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        .container-mid {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* ── SECTION LABELS ── */
+        .label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        /* ── PAIN SECTION ── */
+        .pain-section {
+            background: var(--white);
+            padding: 96px 32px;
+        }
+
+        .pain-lede {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 400;
+            line-height: 1.25;
+            color: var(--ink);
+            max-width: 700px;
+            margin-bottom: 56px;
+        }
+
+        .pain-lede em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .pain-body p {
+            font-size: clamp(17px, 2vw, 20px);
+            line-height: 1.85;
+            color: var(--ink-soft);
+            margin-bottom: 28px;
+            max-width: 660px;
+        }
+
+        .pain-body p strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .pain-body p em {
+            font-style: italic;
+        }
+
+        .pain-callout {
+            border-left: 4px solid var(--accent);
+            padding: 28px 36px;
+            background: var(--paper);
+            margin: 48px 0;
+            max-width: 680px;
+        }
+
+        .pain-callout p {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(20px, 2.5vw, 26px);
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--ink);
+            margin: 0;
+        }
+
+        /* ── STATS ── */
+        .stats-section {
+            background: var(--ink);
+            padding: 96px 32px;
+        }
+
+        .stats-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 900;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.15;
+            margin-bottom: 64px;
+        }
+
+        .stats-headline em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .stat-cell {
+            padding: 52px 36px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .stat-cell:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(52px, 7vw, 80px);
+            font-weight: 900;
+            color: var(--gold-light);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.65;
+        }
+
+        /* ── BOOK INTRO ── */
+        .book-section {
+            background: var(--paper);
+            padding: 96px 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .book-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(36px, 5.5vw, 64px);
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--ink);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .book-headline em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .book-sub {
+            text-align: center;
+            font-size: 17px;
+            color: var(--ink-muted);
+            margin-bottom: 72px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .book-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 72px;
+            align-items: start;
+            margin-bottom: 80px;
+        }
+
+        .book-cover {
+            background: linear-gradient(160deg, #1a0a06 0%, #3d1009 40%, var(--accent-dark) 100%);
+            aspect-ratio: 3/4;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 32px 24px;
+            box-shadow:
+                8px 8px 0 rgba(0, 0, 0, 0.15),
+                16px 16px 48px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+        }
+
+        .book-cover-eyebrow {
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .book-cover-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 26px;
+            font-weight: 900;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .book-cover-rule {
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 14px;
+        }
+
+        .book-cover-sub {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            letter-spacing: 0.06em;
+        }
+
+        .book-copy p {
+            font-size: clamp(16px, 1.8vw, 18px);
+            line-height: 1.9;
+            color: var(--ink-soft);
+            margin-bottom: 22px;
+        }
+
+        .book-copy p strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── WHAT'S INSIDE ── */
+        .inside-headline {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(24px, 3vw, 34px);
+            color: var(--ink);
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .inside-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .inside-card {
+            background: var(--white);
+            padding: 28px 32px;
+            transition: background 0.15s;
+        }
+
+        .inside-card:hover {
+            background: var(--paper-warm);
+        }
+
+        .inside-card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.35;
+        }
+
+        .inside-card-title::before {
+            content: '→';
+            color: var(--accent);
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .inside-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--ink-muted);
+            margin: 0;
+            padding-left: 26px;
+        }
+
+        /* ── PILLARS ── */
+        .pillars-section {
+            background: var(--white);
+            padding: 96px 32px;
+        }
+
+        .pillars-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(28px, 4vw, 46px);
+            font-weight: 900;
+            color: var(--ink);
+            text-align: center;
+            line-height: 1.15;
+            margin-bottom: 64px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid var(--border);
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .pillar {
+            padding: 48px 36px;
+            border-right: 1px solid var(--border);
+            position: relative;
+        }
+
+        .pillar:last-child {
+            border-right: none;
+        }
+
+        .pillar-num-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .pillar-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--border-dark);
+            line-height: 1;
+        }
+
+        .pillar-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .pillar h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .pillar p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: var(--ink-muted);
+        }
+
+        /* ── DIFFERENCE SECTION ── */
+        .diff-section {
+            background: var(--ink);
+            padding: 96px 32px;
+        }
+
+        .diff-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4.5vw, 52px);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 48px;
+            max-width: 660px;
+        }
+
+        .diff-headline em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .diff-body p {
+            font-size: clamp(17px, 2vw, 20px);
+            line-height: 1.85;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 28px;
+            max-width: 680px;
+        }
+
+        .diff-body p strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        .diff-callout {
+            border-left: 3px solid var(--gold);
+            padding: 24px 32px;
+            background: rgba(255, 255, 255, 0.04);
+            margin: 48px 0;
+            max-width: 680px;
+        }
+
+        .diff-callout p {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(18px, 2.2vw, 24px);
+            font-style: italic;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        /* ── TWO CHOICES ── */
+        .choices-section {
+            background: var(--paper-cool);
+            padding: 96px 32px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .choices-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 900;
+            color: var(--ink);
+            text-align: center;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .choices-sub {
+            text-align: center;
+            color: var(--ink-muted);
+            font-size: 17px;
+            margin-bottom: 56px;
+        }
+
+        .two-choices {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .choice {
+            padding: 48px 40px;
+        }
+
+        .choice-bad {
+            border-right: 1px solid var(--border);
+            background: #fafafa;
+        }
+
+        .choice-good {
+            background: var(--white);
+        }
+
+        .choice-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            margin-bottom: 24px;
+            border-radius: 2px;
+        }
+
+        .choice-bad .choice-tag {
+            background: #f0f0f0;
+            color: #aaa;
+        }
+
+        .choice-good .choice-tag {
+            background: var(--accent);
+            color: white;
+        }
+
+        .choice h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 28px;
+            line-height: 1.3;
+        }
+
+        .choice-bad h3 {
+            color: #bbb;
+            text-decoration: line-through;
+        }
+
+        .choice-good h3 {
+            color: var(--ink);
+        }
+
+        .choice ul {
+            list-style: none;
+        }
+
+        .choice ul li {
+            font-size: 16px;
+            padding: 12px 0 12px 26px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            line-height: 1.55;
+        }
+
+        .choice-bad ul li {
+            color: #bbb;
+        }
+
+        .choice-bad ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: #ccc;
+        }
+
+        .choice-good ul li {
+            color: var(--ink-soft);
+            font-weight: 500;
+        }
+
+        .choice-good ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .choices-footer {
+            grid-column: 1/-1;
+            background: var(--ink);
+            padding: 24px 40px;
+            text-align: center;
+        }
+
+        .choices-footer p {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(16px, 2vw, 20px);
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+        }
+
+        /* ── BONUSES ── */
+        .bonus-section {
+            background: var(--white);
+            padding: 96px 32px;
+        }
+
+        .bonus-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 48px);
+            font-weight: 900;
+            color: var(--ink);
+            text-align: center;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .bonus-headline em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .bonus-sub {
+            text-align: center;
+            font-size: 17px;
+            color: var(--ink-muted);
+            margin-bottom: 56px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── LARGE BONUSES ── */
+        .bonus-cards-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 48px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bonus-card-large {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 32px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            align-items: center;
+        }
+
+        @media (max-width: 680px) {
+            .bonus-card-large {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .bonus-card-img {
+            background: var(--paper-cool);
+            border: 2px dashed var(--border-dark);
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink-faint);
+            font-style: italic;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .bonus-card-content h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 24px;
+            color: var(--ink);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .bonus-card-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .bonus-card-content p {
+            font-size: 16px;
+            color: var(--ink-muted);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* ── OFFER ── */
+        .offer-section {
+            background: var(--paper);
+            padding: 96px 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .offer-box {
+            max-width: 680px;
+            margin: 0 auto;
+            border: 2px solid var(--ink);
+            background: var(--white);
+            text-align: center;
+            padding: 64px 56px;
+            position: relative;
+        }
+
+        .offer-flag {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 6px 20px;
+            white-space: nowrap;
+        }
+
+        .offer-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+
+        .offer-sub {
+            font-size: 14px;
+            color: var(--ink-muted);
+            margin-bottom: 36px;
+        }
+
+        .offer-price-block {
+            margin: 0 auto 28px;
+        }
+
+        .offer-was {
+            font-size: 15px;
+            color: var(--ink-faint);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .offer-price {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 96px;
+            font-weight: 900;
+            color: var(--ink);
+            line-height: 1;
+        }
+
+        .offer-price sup {
+            font-size: 0.38em;
+            vertical-align: super;
+        }
+
+        .offer-note {
+            font-size: 13px;
+            color: var(--ink-muted);
+            margin-bottom: 36px;
+            font-style: italic;
+        }
+
+        .btn-offer {
+            display: block;
+            max-width: 460px;
+            margin: 0 auto;
+            background: var(--accent);
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 22px 40px;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background 0.15s, transform 0.12s;
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-offer:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-offer small {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.75;
+            margin-top: 4px;
+        }
+
+        .guarantee-note {
+            margin-top: 18px;
+            font-size: 13px;
+            color: var(--ink-muted);
+            font-style: italic;
+        }
+
+        /* ── GUARANTEE ── */
+        .guarantee-box {
+            max-width: 680px;
+            margin: 48px auto 0;
+            display: grid;
+            grid-template-columns: 96px 1fr;
+            gap: 36px;
+            align-items: start;
+            border: 1px solid var(--border);
+            padding: 36px 40px;
+            background: var(--white);
+        }
+
+        .g-seal {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .g-days {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .g-day-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+        }
+
+        .g-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 20px;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .g-body {
+            font-size: 14px;
+            color: var(--ink-muted);
+            line-height: 1.75;
+        }
+
+        /* ── COST SECTION ── */
+        .cost-section {
+            background: var(--ink);
+            padding: 96px 32px;
+        }
+
+        .cost-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4.5vw, 52px);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 48px;
+            max-width: 680px;
+        }
+
+        .cost-headline em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .cost-body p {
+            font-size: clamp(17px, 2vw, 20px);
+            line-height: 1.85;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 28px;
+            max-width: 680px;
+        }
+
+        .cost-body p strong {
+            color: white;
+        }
+
+        .cost-compare {
+            list-style: none;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 560px;
+            margin: 40px 0;
+        }
+
+        .cost-compare li {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .cost-compare li:last-child {
+            border-bottom: none;
+            background: rgba(255, 255, 255, 0.04);
+            color: white;
+            font-weight: 600;
+        }
+
+        .cost-compare .price {
+            color: var(--gold-light);
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 16px;
+        }
+
+        .cost-compare li:last-child .price {
+            color: var(--gold-light);
+            font-size: 20px;
+        }
+
+        /* ── FINAL CTA ── */
+        .final-section {
+            background: var(--paper);
+            padding: 96px 32px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .final-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4.5vw, 54px);
+            font-weight: 900;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 28px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-body {
+            max-width: 580px;
+            margin: 0 auto 48px;
+        }
+
+        .final-body p {
+            font-size: clamp(16px, 1.8vw, 19px);
+            color: var(--ink-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .final-body p strong {
+            color: var(--ink-soft);
+        }
+
+        .btn-final {
+            display: inline-block;
+            background: var(--ink);
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 22px 52px;
+            text-decoration: none;
+            border-radius: 3px;
+            letter-spacing: 0.01em;
+            transition: background 0.15s, transform 0.12s;
+            text-align: center;
+        }
+
+        .btn-final:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-final small {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        .final-trust {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--ink-faint);
+            font-style: italic;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.3);
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .book-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .book-cover {
+                max-width: 220px;
+                margin: 0 auto;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillar {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .pillar:last-child {
+                border-bottom: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-cell {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .two-choices {
+                grid-template-columns: 1fr;
+            }
+
+            .choice-bad {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .bonus-item {
+                grid-template-columns: 48px 1fr;
+            }
+
+            .bonus-val {
+                grid-column: 2;
+            }
+
+            .guarantee-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .g-seal {
+                margin: 0 auto;
+            }
+
+            .offer-box {
+                padding: 44px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">Limited-time offer — <strong>The Success Spiral for $17</strong> · 30-day money-back guarantee ·
+        No questions asked</div>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+        <div class="hero-line-top"></div>
+        <div class="hero-noise"></div>
+        <div class="hero-inner">
+            <h1>Why Do Motivated,<br>Ambitious People Keep<br><em>Failing at the Same Goals</em>?</h1>
+            <p class="hero-sub">It's not discipline. It's not willpower. It's not even effort. It's something much
+                simpler — and once you see it, you can't unsee it.</p>
+
+        </div>
+    </section>
+
+    <!-- ═══ VIDEO ═══ -->
+    <div class="video-section">
+        <div class="container">
+            <p style="text-align: center; font-size: clamp(20px, 2.5vw, 24px); font-weight: 400; color: rgba(255, 255, 255, 0.9); margin-bottom: 40px; font-family: 'DM Serif Display', Georgia, serif; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.4;">
+                This ebook reveals the exact system to break the cycle of starting over and build unstoppable, compounding momentum.
+            </p>
+            <div class="video-wrap">
+                <div class="video-play-btn">
+                    <svg viewBox="0 0 24 24">
+                        <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                </div>
+                <div class="video-label">Watch: How The Success Spiral Works</div>
+            </div>
+
+            <div class="hero-cta-group" style="margin-top: 56px;">
+                <a href="#order" class="btn-hero">Get The Success Spiral — $17<small>Instant PDF access · 30-day guarantee · no upsells</small></a>
+                <span class="hero-trust">🔒 One-time payment. No subscription.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ PAIN ═══ -->
+    <section class="pain-section">
+        <div class="container">
+            <h2 class="pain-lede">No one wants to admit it, but the truth is — <em>you've been blaming yourself for a
+                    broken system.</em></h2>
+
+            <div class="pain-body">
+                <p>We've been conditioned to believe consistency is a personality trait. Something you either have or
+                    you don't. So when you slip up, you don't blame the approach — you blame yourself.</p>
+
+                <p>But you've been looking at this all wrong.</p>
+
+                <p>It's not because you're lazy. It's not because you don't care. You probably care <em>too much</em>.
+                    The guilt. The constant restarting. The "okay, this Monday for real" cycle. It takes a certain kind
+                    of person to keep trying after failing so many times.</p>
+
+                <p><strong>A driven one.</strong></p>
+
+                <p>Here's what nobody says out loud: <strong>the system you've been using was built for perfect
+                        conditions.</strong> And life doesn't give you those. One bad week. One rough night. One day
+                    where you just can't. And the whole thing collapses.</p>
+
+                <p>It's not just the habit that falls apart — it's the story you tell about yourself. <em>"I'm just not
+                        someone who follows through."</em> That story gets louder with every restart. And quietly, it
+                    starts running your decisions.</p>
+            </div>
+
+            <div class="pain-callout">
+                <p>"Consistency at 70% beats intensity at 100% every single time. Because 70% actually shows up on a
+                    Tuesday when everything feels like too much."</p>
+            </div>
+
+            <div class="pain-body">
+                <p>You've probably noticed the all-or-nothing pattern. Either fully locked in — or completely checked
+                    out and feeling terrible about it. No middle gear. That cycle is exhausting for both your goals and
+                    your self-image.</p>
+
+                <p>Progress stays invisible for weeks, so you quit — <strong>usually right before it would have started
+                        compounding into something real.</strong> That's the cruelest part of how this actually works.
+                </p>
+
+                <p>The people who seem to "have it together" aren't running on more willpower than you. They've just
+                    built systems that don't <em>need</em> willpower as the primary fuel. That's a learnable thing. And
+                    that's exactly what this is about.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ STATS ═══ -->
+    <section class="stats-section">
+        <div class="container-mid">
+            <p class="label" style="color:var(--gold);text-align:center;display:block;">The numbers behind why this
+                happens</p>
+            <h2 class="stats-headline">Most people quit<br><em>right before it gets good</em></h2>
+
+            <div class="stats-grid">
+                <div class="stat-cell">
+                    <div class="stat-num">66</div>
+                    <div class="stat-label">Average days to build a habit that actually holds — UCL research. Not 21.
+                        That one's a myth. You've been quitting way too early.</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-num">37×</div>
+                    <div class="stat-label">What a 1% daily improvement compounds into over a full year. Most people
+                        give up before they ever feel it working.</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-num">82%</div>
+                    <div class="stat-label">Of people walk away within the first six weeks — right before the
+                        compounding kicks in and results finally become visible.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ BOOK INTRO ═══ -->
+    <section class="book-section">
+        <div class="container-wide">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <p style="display:inline-block; background: var(--ink); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 16px; border-radius: 4px; margin-bottom: 24px;">INTRODUCING THE GUIDE</p>
+                <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(40px, 5vw, 64px); font-weight: 900; color: var(--ink); margin-bottom: 12px; line-height: 1.1;">
+                    The Success Spiral
+                </h2>
+                <p style="font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(22px, 3vw, 32px); color: var(--accent); font-style: italic; margin-bottom: 0;">
+                    Turn Small Wins Into Big Victories
+                </p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); padding: 56px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.04); position: relative;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold)); border-radius: 8px 8px 0 0;"></div>
+                
+                <div style="font-size: 19px; line-height: 1.75; color: var(--ink-muted);">
+                    <p style="margin-bottom: 20px;"><strong style="color: var(--ink);">The Success Spiral</strong> is a framework for building momentum without burning out. Not a motivation book. Not a productivity system that requires perfect conditions.</p>
+                    <p style="margin-bottom: 20px;">A practical, step-by-step guide built for the way real life actually works.</p>
+                    <p style="margin-bottom: 20px;">The core idea is straightforward: <strong style="color: var(--ink);">small, deliberate actions compound into massive results.</strong></p>
+                    <p style="margin-bottom: 20px;">But only if you understand how to stack them correctly, how to keep going when you slip, and how to build the kind of identity that makes the whole thing self-sustaining.</p>
+                    <p style="margin-bottom: 20px;">It covers the neuroscience of why habits fail, and how to engineer starting points so small that resistance disappears.</p>
+                    <p style="margin-bottom: 20px;">Why celebrating small wins isn't optional — it's neurologically essential.</p>
+                    <p style="margin-bottom: 0;">And because every streak ends eventually, it comes with a built-in restart protocol so you never have to figure out how to get back on track on your own.</p>
+
+
+                </div>
+            </div>
+
+            <!-- WHAT'S INSIDE -->
+            <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4vw, 40px); color: var(--ink); text-align: center; margin: 96px 0 48px; font-weight: 900;">Here's exactly what's inside</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto;">
+                <!-- Card 1 -->
+                <div style="background: var(--paper-cool); border: 1px solid var(--border); padding: 32px; border-radius: 6px; position: relative; overflow: hidden; transition: transform 0.2s;">
+                    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">Why willpower keeps failing you</div>
+                    <p style="font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0;">The real brain mechanism behind habit formation — and how to use it so action feels automatic instead of forced.</p>
+                </div>
+                <!-- Card 2 -->
+                <div style="background: var(--paper-cool); border: 1px solid var(--border); padding: 32px; border-radius: 6px; position: relative; overflow: hidden; transition: transform 0.2s;">
+                    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">Redefining what "winning" looks like</div>
+                    <p style="font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0;">How to start accumulating evidence of success instead of constantly resetting the scoreboard to zero.</p>
+                </div>
+                <!-- Card 3 -->
+                <div style="background: var(--paper-cool); border: 1px solid var(--border); padding: 32px; border-radius: 6px; position: relative; overflow: hidden; transition: transform 0.2s;">
+                    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">Overcoming the first-step problem</div>
+                    <p style="font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0;">The exact process for starting even when everything in you says to wait until Monday.</p>
+                </div>
+                <!-- Card 4 -->
+                <div style="background: var(--paper-cool); border: 1px solid var(--border); padding: 32px; border-radius: 6px; position: relative; overflow: hidden; transition: transform 0.2s;">
+                    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">How small wins stack into big ones</div>
+                    <p style="font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0;">Why compounding momentum is real — and why most people quit at exactly the wrong moment.</p>
+                </div>
+                <!-- Card 5 -->
+                <div style="background: var(--paper-cool); border: 1px solid var(--border); padding: 32px; border-radius: 6px; position: relative; overflow: hidden; transition: transform 0.2s;">
+                    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">Why celebration is non-negotiable</div>
+                    <p style="font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0;">Skipping it is quietly killing the habits you're trying to build. This chapter changes how you think about it.</p>
+                </div>
+                <!-- Card 6 -->
+                <div style="background: var(--paper-cool); border: 1px solid var(--border); padding: 32px; border-radius: 6px; position: relative; overflow: hidden; transition: transform 0.2s;">
+                    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">The identity shift that sticks</div>
+                    <p style="font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0;">You don't decide to become someone different. You behave differently until your brain rewrites its own story.</p>
+                </div>
+                <!-- Card 7 -->
+                <div style="background: var(--paper-cool); border: 1px solid var(--border); padding: 32px; border-radius: 6px; position: relative; overflow: hidden; transition: transform 0.2s;">
+                    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">The restart protocol</div>
+                    <p style="font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0;">What to do when the streak ends — so a missed day doesn't become a missed month.</p>
+                </div>
+                <!-- Card 8 -->
+                <div style="background: var(--paper-cool); border: 1px solid var(--border); padding: 32px; border-radius: 6px; position: relative; overflow: hidden; transition: transform 0.2s;">
+                    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; line-height: 1.3;">Playing the long game</div>
+                    <p style="font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0;">How to stay the course during the invisible weeks, when nothing looks different yet but the compounding is already happening.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PILLARS ═══ -->
+    <section class="pillars-section">
+        <div class="container-wide">
+
+            <h2 class="pillars-headline">The Success Spiral is built on three pillars that make it work in the real
+                world</h2>
+
+            <div class="pillars-grid">
+                <div class="pillar">
+                    <div class="pillar-num-wrap">
+                        <div class="pillar-num">01</div>
+                        <div class="pillar-label">Pillar One</div>
+                    </div>
+                    <h3>Make progress feel good, not grinding</h3>
+                    <p>The system isn't built around sacrifice. It's built around small wins that are genuinely
+                        satisfying — so you keep going because you want to, not because you're white-knuckling it.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-num-wrap">
+                        <div class="pillar-num">02</div>
+                        <div class="pillar-label">Pillar Two</div>
+                    </div>
+                    <h3>High-impact actions that fit any day</h3>
+                    <p>Short, deliberate protocols that fit inside your actual schedule — not the idealized version of
+                        it. Actions that build momentum without demanding perfect conditions.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-num-wrap">
+                        <div class="pillar-num">03</div>
+                        <div class="pillar-label">Pillar Three</div>
+                    </div>
+                    <h3>Built-in resilience, not just motivation</h3>
+                    <p>Motivation fades. Resilience is structural. This pillar gives you the tools to recover from
+                        setbacks without starting over from zero — every single time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ DIFFERENCE ═══ -->
+    <section class="diff-section">
+        <div class="container">
+
+            <h2 class="diff-headline">Most systems punish you<br>for being human.<br><em>This one doesn't.</em></h2>
+
+            <div class="diff-body">
+                <p>Every habit tracker you've ever tried was built on the assumption that you'll be consistent. The
+                    moment you're not — one missed day, one bad week — the system breaks down and you feel like the
+                    failure instead of the system.</p>
+
+                <p>That's backwards. <strong>A missed day is a data point, not a moral verdict.</strong> The Success
+                    Spiral is built from the ground up to catch you when you slip — and compound forward motion instead
+                    of punishing the gaps.</p>
+
+                <p>The first thing it gets right is embarrassingly simple once you see it: <strong>starting
+                        smaller.</strong> Not as a compromise — as the only approach that actually builds the neural
+                    pathway first. Volume and intensity come naturally after that. Skipping this step is the reason
+                    every other system collapses right when it should be gaining traction.</p>
+            </div>
+
+            <div class="diff-callout">
+                <p>"You don't decide to become a different person. You behave differently, repeatedly, until your brain
+                    quietly updates its own story. That's how it actually works."</p>
+            </div>
+
+            <div class="diff-body">
+                <p>The identity piece is a byproduct, not a starting point. <strong>You won't need to psych yourself up
+                        or repeat affirmations you don't believe yet.</strong> You take the actions in the system —
+                    consistently, at whatever size actually fits your day — and your self-image follows the behavior.
+                    Not the other way around.</p>
+
+                <p>And because every streak ends eventually, the system includes a restart protocol built into the core
+                    structure. You won't need to figure out how to get back on track. The book already tells you exactly
+                    what to do.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TWO CHOICES ═══ -->
+    <section class="choices-section">
+        <div class="container-wide">
+            <p class="label" style="display:block;text-align:center;">Your options</p>
+            <h2 class="choices-headline">Two paths from here</h2>
+            <p class="choices-sub">One leads somewhere. The other leads back to the same conversation six months from
+                now.</p>
+
+            <div class="two-choices">
+                <div class="choice choice-bad">
+                    <div class="choice-tag">Without this</div>
+                    <h3>Keep doing what hasn't worked</h3>
+                    <ul>
+                        <li>Restart the same goals every few weeks</li>
+                        <li>Quit right before compounding kicks in</li>
+                        <li>Blame yourself instead of the system</li>
+                        <li>Stay stuck in the all-or-nothing cycle</li>
+                        <li>Watch the gap between now and where you want to be get wider</li>
+                    </ul>
+                </div>
+                <div class="choice choice-good">
+                    <div class="choice-tag">With The Success Spiral</div>
+                    <h3>Build momentum that actually holds</h3>
+                    <ul>
+                        <li>Stack small wins into real, visible progress</li>
+                        <li>Recover from setbacks without starting over</li>
+                        <li>Build habits that don't need willpower to run</li>
+                        <li>Know exactly what to do — even on the worst days</li>
+                        <li>Finally close the gap between who you are and who you want to be</li>
+                    </ul>
+                </div>
+                <div class="choices-footer">
+                    <p>"The only option that guarantees nothing changes is doing nothing. And that's the one that costs
+                        the most over time."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ BONUSES ═══ -->
+    <section class="bonus-section" id="order">
+        <div class="container-wide">
+            <h2 class="bonus-headline" style="max-width: 900px; margin: 0 auto; line-height: 1.2;">Get 5 FREE Bonuses Instantly When You Say Yes Today</h2>
+            <p style="text-align: center; font-size: 18px; color: var(--ink-muted); margin-top: 20px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">These powerful bonuses are designed to help you take action faster, stay consistent, and build real momentum in your life and goals.</p>
+
+            <div class="bonus-cards-wrap">
+                <!-- Bonus 1 -->
+                <div class="bonus-card-large">
+                    <div class="bonus-card-img">[ Product Cover ]</div>
+                    <div class="bonus-card-content">
+                        <h3>Bonus #1 – Complete Action Checklist</h3>
+                        <div class="bonus-card-value">Value: $9</div>
+                        <p>This step-by-step checklist helps you apply The Success Spiral with clarity and direction, without feeling overwhelmed. It breaks the entire system into simple, actionable steps so you always know exactly what to do next.</p>
+                    </div>
+                </div>
+
+                <!-- Bonus 2 -->
+                <div class="bonus-card-large">
+                    <div class="bonus-card-img">[ Product Cover ]</div>
+                    <div class="bonus-card-content">
+                        <h3>Bonus #2 – Comprehensive Mindmap</h3>
+                        <div class="bonus-card-value">Value: $17</div>
+                        <p>This visual mindmap gives you a complete overview of The Success Spiral system at a glance. It helps you absorb key ideas faster, improve clarity, and turn what you learn into action more effectively.</p>
+                    </div>
+                </div>
+
+                <!-- Bonus 3 -->
+                <div class="bonus-card-large">
+                    <div class="bonus-card-img">[ Product Cover ]</div>
+                    <div class="bonus-card-content">
+                        <h3>Bonus #3 – “Three Small Wins” Guidebook</h3>
+                        <div class="bonus-card-value">Value: $27</div>
+                        <p>This guidebook reveals a simple system built around achieving three small wins each day to create lasting consistency and momentum. You’ll learn how to overcome procrastination, break big goals into manageable actions, and move forward steadily without burnout or overwhelm.</p>
+                    </div>
+                </div>
+
+                <!-- Bonus 4 -->
+                <div class="bonus-card-large">
+                    <div class="bonus-card-img">[ Product Cover ]</div>
+                    <div class="bonus-card-content">
+                        <h3>Bonus #4 – “13 Psychological Traps” Mini Book</h3>
+                        <div class="bonus-card-value">Value: $19</div>
+                        <p>This mini book uncovers hidden mental traps that quietly destroy motivation, focus, and consistency. You’ll learn how to recognize these patterns, break free from them, and stay on track so you can continue building momentum with the Success Spiral method.</p>
+                    </div>
+                </div>
+
+                <!-- Bonus 5 -->
+                <div class="bonus-card-large">
+                    <div class="bonus-card-img">[ Product Cover ]</div>
+                    <div class="bonus-card-content">
+                        <h3>Bonus #5 – Productivity Prompts</h3>
+                        <div class="bonus-card-value">Value: $19</div>
+                        <p>This productivity prompt pack gives you powerful AI-driven prompts to sharpen your focus, organize your thoughts, and take action faster in both life and work. It helps simplify your workflow, reduce overwhelm, and maintain consistent progress with ease.</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- ═══ OFFER ═══ -->
+    <section class="offer-section">
+        <div class="container">
+            <div class="offer-box">
+                <div class="offer-flag">One-Time Offer — Limited Price</div>
+                <div class="offer-title">The Success Spiral — Complete Package</div>
+                <div class="offer-sub">Main guide + 5 bonuses + 30-day guarantee</div>
+
+                <div style="margin: 32px auto 40px; max-width: 440px; padding: 24px; background: var(--paper-cool); border-radius: 6px; border: 1px dashed var(--border-dark); text-align: left;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 18px; color: var(--ink-muted);">
+                        <span>Total Bonus Value:</span>
+                        <span style="font-weight: 700; color: var(--ink); text-decoration: line-through;">$91</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 20px;">
+                        <span style="font-weight: 700; color: var(--ink);">Total Package Value:</span>
+                        <span style="font-weight: 900; color: var(--accent); text-decoration: line-through;">$138</span>
+                    </div>
+                    <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: var(--ink); font-style: italic; border-top: 1px solid var(--border); padding-top: 20px; text-align: center;">
+                        But you're paying nowhere near that...
+                    </div>
+                </div>
+                
+                <p style="font-size: 16px; color: var(--ink-muted); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6;">You’re not just getting an ebook. You’re getting a complete system designed to help you stop overthinking, take consistent action, and build unstoppable momentum.</p>
+
+                <div class="offer-price-block" style="margin-bottom: 20px;">
+                    <div class="offer-price"><sup>$</sup>17</div>
+                </div>
+                <div class="offer-note">One-time payment · Instant PDF download · No subscription · No upsells at
+                    checkout</div>
+                <a href="#" class="btn-offer">Yes — Give Me Instant Access for $17<small>Secure checkout · Instant
+                        delivery · 30-day money-back guarantee</small></a>
+                <p class="guarantee-note">🔒 Backed by a full 30-day money-back guarantee. Email once, full refund. No
+                    forms, no hoops.</p>
+            </div>
+
+            <div class="guarantee-box">
+                <div class="g-seal">
+                    <div class="g-days">30</div>
+                    <div class="g-day-label">Day<br>Guarantee</div>
+                </div>
+                <div>
+                    <div class="g-title">Zero risk. Full refund. No questions.</div>
+                    <div class="g-body">Go through the system for up to 30 days. If it doesn't give you something
+                        genuinely useful — a framework that clicks, habits that hold, or at minimum a clear
+                        understanding of why your current approach keeps failing — send one email and you'll get every
+                        dollar back. No explanation needed. No forms. No waiting. The risk is entirely on our side of
+                        the screen, not yours.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ COST OF NOTHING ═══ -->
+    <section class="cost-section">
+        <div class="container">
+            <p class="label" style="color:var(--gold);">Before you close this page</p>
+            <h2 class="cost-headline">What's the real cost<br>of <em>not changing anything</em>?</h2>
+
+            <div class="cost-body">
+                <p>You've heard this kind of thing before. Maybe more than once. People talking about habits and
+                    momentum and transforming your life. Maybe it sounds like noise at this point.</p>
+
+                <p>But ask yourself honestly: what happens if you close this page and nothing changes?</p>
+
+                <p><strong>The restart cycle continues.</strong> The goals stay goals. The story — "I'm just not someone
+                    who follows through" — gets one more data point. Six months from now, you're exactly where you are
+                    today, except the gap is a little wider and a little harder to close.</p>
+
+                <p>That's not dramatic. That's just what staying stuck actually costs over time.</p>
+            </div>
+
+            <ul class="cost-compare">
+                <li>
+                    <span>A single session with a life coach</span>
+                    <span class="price">$150–$300</span>
+                </li>
+                <li>
+                    <span>A habit-tracking app subscription (annual)</span>
+                    <span class="price">$60–$100</span>
+                </li>
+                <li>
+                    <span>A productivity book</span>
+                    <span class="price">$20–$40</span>
+                </li>
+                <li>
+                    <span>The Success Spiral — complete package</span>
+                    <span class="price">$17</span>
+                </li>
+            </ul>
+
+            <div class="cost-body">
+                <p>You're spending less than a dinner out. <strong>Seventeen dollars</strong> for a system that might be
+                    the thing that finally makes the difference between almost and actually.</p>
+
+                <p>And if it doesn't — if you go through every chapter and walk away with nothing genuinely useful — you
+                    email once and get your $17 back. No explanation. No hoops. No waiting.</p>
+
+                <p><strong>The only option that guarantees nothing changes is doing nothing. And that one's
+                        free.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FINAL CTA ═══ -->
+    <section class="final-section">
+        <div class="container">
+            <p class="label" style="display:block;">Make the call</p>
+            <h2 class="final-headline">Don't spend the next six months wishing you'd started sooner.</h2>
+
+            <div class="final-body">
+                <p>You already have the ambition. This gives you the architecture.</p>
+                <p><strong>What happens next is yours — but at least it won't keep collapsing under you.</strong></p>
+                <p>For $17, backed by a guarantee that means you literally cannot lose money on this, the only real
+                    question is why you'd wait.</p>
+            </div>
+
+            <a href="#order" class="btn-final">Yes, I'm Ready — Get The Success Spiral for $17<small>Instant access ·
+                    PDF download · 30-day money-back guarantee</small></a>
+            <p class="final-trust">Full 30-day money-back guarantee. One email. No explanation needed.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 The Success Spiral. All rights reserved.<br>
+            Results may vary. This is a digital product — nothing is shipped. For refund requests, contact us within 30
+            days of purchase.</p>
+    </footer>
+
+</body>
+
+</html>
